@@ -13,12 +13,12 @@ include:
 {%- if salt['pillar.get']('beats:filebeat:config', {}) %}
 filebeat-config-file-file-serialize:
   file.serialize:
-    - name: {{ beats.filebeat.config }}
+    - name: /etc/filebeat/filebeat.yml
     - dataset_pillar: 'beats:filebeat:config'
     - formatter: yaml
     - mode: '0644'
     - user: root
-    - group: {{ beats.rootgroup }}
+    - group: root
     - require:
       - sls: {{ sls_package_install }}
 {%- endif %}
@@ -26,12 +26,12 @@ filebeat-config-file-file-serialize:
 {%- if salt['pillar.get']('beats:metricbeat:config', {}) %}
 metricbeat-config-file-file-serialize:
   file.serialize:
-    - name: {{ beats.metricbeat.config }}
+    - name: /etc/metricbeat/metricbeat.yml
     - dataset_pillar: 'beats:metricbeat:config'
     - formatter: yaml
     - mode: '0644'
     - user: root
-    - group: {{ beats.rootgroup }}
+    - group: root
     - require:
       - sls: {{ sls_package_install }}
 {%- endif %}
@@ -44,7 +44,7 @@ auditbeat-config-file-file-serialize:
     - formatter: yaml
     - mode: '0644'
     - user: root
-    - group: {{ beats.rootgroup }}
+    - group: root
     - require:
       - sls: {{ sls_package_install }}
 {%- endif %}
@@ -52,12 +52,12 @@ auditbeat-config-file-file-serialize:
 {%- if salt['pillar.get']('beats:packetbeat:config', {}) %}
 packebeat-config-file-file-serialize:
   file.serialize:
-    - name: {{ beats.packetbeat.config }}
+    - name: /etc/packetbeat/packetbeat.yml
     - dataset_pillar: 'beats:packetbeat:config'
     - formatter: yaml
     - mode: '0644'
     - user: root
-    - group: {{ beats.rootgroup }}
+    - group: root
     - require:
       - sls: {{ sls_package_install }}
 {%- endif %}
@@ -70,8 +70,20 @@ heartbeat-config-file-file-serialize:
     - formatter: yaml
     - mode: '0644'
     - user: root
-    - group: {{ beats.rootgroup }}
+    - group: root
     - require:
       - sls: {{ sls_package_install }}
 {%- endif %}
 
+{%- if salt['pillar.get']('beats:community:journalbeat:config', {}) %}
+journalbeat-config-file-file-serialize:
+  file.serialize:
+    - name: {{ beats.journalbeat.config }}
+    - dataset_pillar: 'beats:community:journalbeat:config'
+    - formatter: yaml
+    - mode: '0644'
+    - user: root
+    - group: root
+    - require:
+      - sls: {{ sls_package_install }}
+{%- endif %}

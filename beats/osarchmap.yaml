@@ -10,26 +10,18 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osarch: {}
 ---
-amd64:
-  arch: amd64
+amd64: {}
 
-x86_64:
-  arch: amd64
+x86_64: {}
 
-386:
-  arch: 386
+386: {}
 
-arm64:
-  arch: arm64
+arm64: {}
 
-armv6l:
-  arch: armv6l
+armv6l: {}
 
-armv7l:
-  arch: armv7l
+armv7l: {}
 
-ppc64le:
-  arch: ppc64le
+ppc64le: {}
 
-s390x:
-  arch: s390x
+s390x: {}

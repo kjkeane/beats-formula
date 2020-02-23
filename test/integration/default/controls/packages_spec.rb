@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 # Overide by OS
-package_name = 'bash'
-package_name = 'cronie' if (os[:name] == 'centos') && os[:release].start_with?('6')
+package_name = 'auditbeat'
+package_name = 'filebeat'
+package_name = 'heartbeat'
+package_name = 'journalbeat'
+package_name = 'metricbeat'
+package_name = 'packetbeat'
 
-control 'TEMPLATE package' do
+control 'beats package' do
   title 'should be installed'
 
   describe package(package_name) do

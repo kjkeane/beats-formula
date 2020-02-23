@@ -1,8 +1,4 @@
-# -*- coding: utf-8 -*-
-# vim: ft=yaml
----
 beats:
-    version: 6
     use_upstream_repo: True
     filebeat:
         config:
@@ -131,3 +127,4 @@ beats:
           output.logstash:
             hosts: ["localhost:9200"]
             logging.to_files: false
+

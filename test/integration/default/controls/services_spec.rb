@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 # Overide by OS
-service_name = 'systemd-udevd'
-service_name = 'crond' if (os[:name] == 'centos') && os[:release].start_with?('6')
+service_name = 'auditbeat'
+service_name = 'filebeat'
+service_name = 'heartbeat'
+service_name = 'journalbeat'
+service_name = 'metricbeat'
+service_name = 'packetbeat'
 
-control 'TEMPLATE service' do
+control 'beats service' do
   impact 0.5
   title 'should be running and enabled'
 

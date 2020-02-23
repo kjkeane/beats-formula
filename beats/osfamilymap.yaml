@@ -10,35 +10,21 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfamilymap: {}
 ---
-Debian:
-  pkg:
-    name: TEMPLATE-debian
-  config: /etc/TEMPLATE.d/custom.conf
+Debian: {}
 
-RedHat:
-  pkg:
-    name: TEMPLATE-redhat
-  config: /etc/TEMPLATE.conf
+RedHat: {}
 
-Suse:
-  pkg:
-    name: TEMPLATE-suse
+Suse: {}
 
 Gentoo: {}
 
-Arch:
-  pkg:
-    name: TEMPLATE-arch
-  service:
-    name: service-arch
+Arch: {}
 
 Alpine: {}
 
-FreeBSD:
-  rootgroup: wheel
+FreeBSD: {}
 
-OpenBSD:
-  rootgroup: wheel
+OpenBSD: {}
 
 Solaris: {}
 
